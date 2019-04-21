@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Landing</title>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href = "./styles/main.css">
+</head>
+<body>
+
+
+    
+    <nav class="navbar navbar-light bg-dark">
+            <div class="dropdown" style="width:4%; height:10%; margin-left: 5%;">
+                <button class="dropbtn"><img id = "navR" src="./styles/R.png" width="10" height="10" alt=""></button>
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        
+        <span id = "welcome" class="navbar-brand mb-0 h1">Welcome Grunt Number 6432</span>
+    </nav>
+    <img id = "teamR" src="./styles/TeamRocket.png" alt="Rocket">
+    <div class="flexbox-container" style= "margin-top: 10%;">
+        <div class = "row no-gutters">
+            <div class = "col-md-1"></div>
+            <div class = "col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Pending Reimbursement Requests
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Request #</th>
+                                    <th scope="col">Request Type</th>
+                                    <th scope="col">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id = "pendingBody">
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">3</th>
+                                <td>Larry the Bird</td>
+                                <td>twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class = "col-md-2">
+                
+            </div>
+            <div class = "col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Resolved Reimbursement Requests
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover table-dark">
+                            <thead>
+                                <tr>
+                                <th scope="col">Request #</th>
+                                <th scope="col">Request Type</th>
+                                <th scope="col">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id = "resolvedBody">
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">3</th>
+                                <td>Larry the Bird</td>
+                                <td>ASDFGASDFSGGGGGGGGG</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row no-gutters">
+            <div class = "col-md-4">
+
+            </div>
+            <div class = "col-md-4" style = "margin-top: 5%;">
+                <div class="card">
+                    <div class="card-header">
+                        New Reimbursement Requests
+                    </div>
+                    <div class="card-body no-gutters">
+                        <form action = "landing" method = "post">
+                            <div class="form-group">
+                                <label for="typeId">What is the reason for reimbursement?</label>
+                                <select name = "reTypeId" class="custom-select typeId" id="typeId">
+                                    <option selected>Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="text">Could you provide a short description of the request?</label>
+                                <textarea name = "reText" class="form-control" rows="2" id="text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="reImage">Please add a picture of verification for the reimbursement</label>
+                                <input name = "reImage" type="file" class="form-control" id="reImage">
+                            </div>
+
+                            <button type="submit" class="btn btn-dark" value = "landing">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<script src= "./js/landing.js"></script>
+</body>
+</html>
