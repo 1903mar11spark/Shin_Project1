@@ -25,23 +25,4 @@ public class ConnectionUtil {
 		return DriverManager.getConnection(prop.getProperty("db.url"), prop.getProperty("db.user"), prop.getProperty("db.password"));
 	}	
 }
-//	public static void main(String[] args) {
-//        try (OutputStream output = new FileOutputStream("C:\\Users\\Shinr\\Desktop\\Revature_OnSight\\HomeWork\\Shin_Project1\\project1\\src\\main\\resources\\config\\config.properties")) {
-//
-//            Properties prop = new Properties();
-//
-//            // set the properties value
-//            prop.setProperty("db.url", "jdbc:oracle:thin:@shinrevature.cuhlahqla0kv.us-east-2.rds.amazonaws.com:1521:orcl");
-//            prop.setProperty("db.user", "HyunShin9");
-//            prop.setProperty("db.password", "200147598");
-//
-//            // save properties to project root folder
-//            prop.store(output, null);
-//
-//            System.out.println(prop);
-//
-//        } catch (IOException io) {
-//            io.printStackTrace();
-//        }
-//	}
-//}
+
