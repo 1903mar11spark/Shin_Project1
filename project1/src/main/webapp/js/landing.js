@@ -42,6 +42,39 @@ function getRequests() {
 		} 
 		else {
 			console.log(data);
+			for (let i = 0 ; i < data.length; i ++) {
+				let newTr = document.createElement("tr");
+		
+				let newTh = document.createElement("th");
+				newTh.setAttribute('scope', 'row');
+				newTh.innerHTML = data[i].reId
+				let reqType = document.createElement("td");
+				switch (data[i].typeId) {
+					case 1: reqType.innerHTML = "Traveling Expense";
+					break;
+					case 2: reqType.innerHTML = "Payment/Purchase/Misc.";
+					break;
+					case 3: reqType.innerHTML = "Medical";
+					break;
+					default: reqType.innerHTML = "HowWhatWhere???"
+				}
+				
+				let description = document.createElement("td");
+				description.innerHTML = data[i].text;
+				
+				newTr.appendChild(newTh);
+				newTr.appendChild(reqType);
+				newTr.appendChild(description);
+
+				switch (data[i].status) {
+					case 1: let m = document.getElementById("pendingBody");
+							m.appendChild(newTr);
+					break;
+					case 2: let n = document.getElementById("resolvedBody");
+							n.appendChild(newTr);
+					break;
+				}
+			}
 
 		}
 	});

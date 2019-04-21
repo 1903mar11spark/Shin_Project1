@@ -42,21 +42,7 @@
                                 </tr>
                             </thead>
                             <tbody id = "pendingBody">
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>twitter</td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -80,21 +66,7 @@
                                 </tr>
                             </thead>
                             <tbody id = "resolvedBody">
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>ASDFGASDFSGGGGGGGGG</td>
-                                </tr>
+   
                             </tbody>
                         </table>
                     </div>
@@ -114,16 +86,16 @@
                         <form action = "landing" method = "post">
                             <div class="form-group">
                                 <label for="typeId">What is the reason for reimbursement?</label>
-                                <select name = "reTypeId" class="custom-select typeId" id="typeId">
-                                    <option selected>Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select required name = "reTypeId" class="custom-select typeId" id="typeId">
+                                    <option selected>Please select one.</option>
+                                    <option value="1">Traveling Expense</option>
+                                    <option value="2">Payment/Purchase/Misc.</option>
+                                    <option value="3">Medical</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="text">Could you provide a short description of the request?</label>
-                                <textarea name = "reText" class="form-control" rows="2" id="text"></textarea>
+                                <textarea required name = "reText" class="form-control" rows="2" id="text"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="reImage">Please add a picture of verification for the reimbursement</label>
