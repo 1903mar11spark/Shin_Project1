@@ -14,5 +14,10 @@ public class LoginServiceImpl implements LoginService{
 		ld.createLogin(userName, password, userId);
 		
 	}
+	@Override
+	public void editLoginById(String userName, String pass, int id) {
+		ld.editLoginById(userName, pass, id);
+		
+	}
 
 }

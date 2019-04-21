@@ -58,6 +58,8 @@ public class MainServlet extends HttpServlet {
 			session.setAttribute("lastName", u.getLastName());
 			session.setAttribute("email", u.getEmail());
 			session.setAttribute("userTypeId", u.getUserTypeId());
+			session.setAttribute("userName", param1);
+			session.setAttribute("password", param2);
 			response.sendRedirect("landing");
 		}
 		

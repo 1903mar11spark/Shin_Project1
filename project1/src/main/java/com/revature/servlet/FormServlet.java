@@ -50,22 +50,24 @@ public class FormServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		String firstName = request.getParameter("fName");	
-		String lastName = request.getParameter("lName");	
-		String email = request.getParameter("email");
-		int userTypeId = 1;
-		
-		userService.createUser(firstName, lastName, email, userTypeId);
-		int user = userService.getUserId(firstName, lastName, email, userTypeId);
-		
-		System.out.println(user);
-		
-		String userName = request.getParameter("uName");	
-		String pass = request.getParameter("pass");
-		
-		logins.createLogin(userName, pass, user);
-		
-		request.getRequestDispatcher("main.html").forward(request, response);
+
+				String firstName = request.getParameter("fName");	
+				String lastName = request.getParameter("lName");	
+				String email = request.getParameter("email");
+				int userTypeId = 1;
+				
+				userService.createUser(firstName, lastName, email, userTypeId);
+				int user = userService.getUserId(firstName, lastName, email, userTypeId);
+				
+				System.out.println(user);
+				
+				String userName = request.getParameter("uName");	
+				String pass = request.getParameter("pass");
+				
+				logins.createLogin(userName, pass, user);
+				
+				request.getRequestDispatcher("main.html").forward(request, response);
+
 
 		
 	}

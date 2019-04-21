@@ -44,15 +44,6 @@ public class LandingServlet extends HttpServlet {
 	}	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		int typeId = Integer.parseInt(request.getParameter("reTypeId"));
-		int status = 1;
-		String text = request.getParameter("reText");	
-		String image = request.getParameter("reImage");
-		int user = Integer.parseInt(session.getAttribute("user").toString());
-		
-		
-		reRequestService.createRequestWithUserId(typeId, status, text, image, user);
-		request.getRequestDispatcher("landing.html").forward(request, response);
 //		if (userId == 0) {
 //			response.sendError(404);
 //		}
@@ -66,6 +57,24 @@ public class LandingServlet extends HttpServlet {
 //			session.setAttribute("userTypeId", u.getUserTypeId());
 //			response.sendRedirect("landing");
 //		}
+		if (session != null) {
+			try {
+				int typeId = Integer.parseInt(request.getParameter("reTypeId"));
+				int status = 1;
+				String text = request.getParameter("reText");	
+				String image = request.getParameter("reImage");
+				int user = Integer.parseInt(session.getAttribute("user").toString());
+				
+				
+				reRequestService.createRequestWithUserId(typeId, status, text, image, user);
+				request.getRequestDispatcher("landing.html").forward(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				response.getWriter().write("{\"session\":null}");
+			}
+		} else {
+			response.getWriter().write("{\"session\":null}");
+		}
 		
 	}
 

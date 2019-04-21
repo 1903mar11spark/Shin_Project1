@@ -56,4 +56,24 @@ public class LoginDAOImpl implements LoginDAO {
 		}
 		
 	}
+
+	@Override
+	public void editLoginById(String userName, String pass, int id) {
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			// write a join to unify Bear, Cave, and BearType into one ResultSet
+			// map the ResultSet onto a list of Bear objects
+			String sql = "UPDATE LOGIN SET USERNAME = ?, PASS = ? " + 
+						 "WHERE USER_ID = ?";
+				
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,userName);
+			pstmt.setString(2, pass);
+			pstmt.setInt(3, id);
+			pstmt.executeUpdate();
+		}
+		catch (SQLException | IOException e) {
+			e.printStackTrace();	
+		}
+		
+	}
 }
