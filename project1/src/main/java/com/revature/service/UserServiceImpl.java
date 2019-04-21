@@ -33,4 +33,10 @@ public class UserServiceImpl implements UserService {
 		return ud.getUserId(firstName, lastName, email, userTypeId);
 	}
 
+	@Override
+	public void updateUserById(String firstName, String lastName, String email, int userId) {
+		ud.updateUserById(firstName, lastName, email, userId);
+		
+	}
+
 }

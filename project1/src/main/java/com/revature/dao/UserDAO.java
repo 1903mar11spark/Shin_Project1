@@ -14,6 +14,8 @@ public interface UserDAO {
 	
 	public void createUser(String firstName, String lastName, String email, int userTypeId);
 	
+	public void updateUserById(String firstName, String lastName, String email, int userId);
+	
 	
 	
 }

@@ -13,4 +13,6 @@ public interface UserService {
 	public int getUserId(String firstName, String lastName, String email, int userTypeId);
 	
 	public void createUser(String firstName, String lastName, String email, int userTypeId);
+	
+	public void updateUserById(String firstName, String lastName, String email, int userId);
 }
