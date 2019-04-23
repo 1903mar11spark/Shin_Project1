@@ -60,7 +60,14 @@ public class MainServlet extends HttpServlet {
 			session.setAttribute("userTypeId", u.getUserTypeId());
 			session.setAttribute("userName", param1);
 			session.setAttribute("password", param2);
-			response.sendRedirect("landing");
+			if (u.getUserTypeId() == 3) {
+				response.sendRedirect("masterLanding.html");
+			}
+			else {
+				response.sendRedirect("landing");
+			}
+			
+			
 		}
 		
 	

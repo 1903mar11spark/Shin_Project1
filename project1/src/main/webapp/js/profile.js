@@ -15,8 +15,8 @@ function gettingUserInfo() {
             let usersName = document.createElement("li");
             let email = document.createElement("li");
             
-            usersName.innerHTML = data.firstName + " " + data.lastName;
-            email.innerHTML = data.email;
+            usersName.innerHTML = "Name: " + data.firstName + " " + data.lastName;
+            email.innerHTML = "Email: " + data.email;
 
             place.appendChild(usersName);
             place.appendChild(email);

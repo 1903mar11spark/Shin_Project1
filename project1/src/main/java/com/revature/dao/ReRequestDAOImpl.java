@@ -70,6 +70,58 @@ public class ReRequestDAOImpl implements ReRequestDAO {
 		}
 		
 	}
+
+	@Override
+	public List<ReRequest> getRequests() {
+		List<ReRequest> rR = new ArrayList<>();
+		
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			// write a join to unify Bear, Cave, and BearType into one ResultSet
+			// map the ResultSet onto a list of Bear objects
+			String sql = "SELECT * " + 
+						 "FROM REREQUEST";
+				
+			PreparedStatement stmtGet = con.prepareStatement(sql);
+			ResultSet rs = stmtGet.executeQuery();
+			
+			while (rs.next()) {
+				int reId = rs.getInt("RE_ID");
+				int typeId = rs.getInt("TYPE_ID");
+				int status = rs.getInt("STATUS");
+				String text = rs.getString("TEXT");
+				String reImage = rs.getString("RE_IMAGE");
+				int useId = rs.getInt("USE_ID");
+				
+				rR.add(new ReRequest(reId, typeId, status, text, reImage, useId));
+			}
+
+		}
+		catch (SQLException | IOException e) {
+			e.printStackTrace();	
+		}
+		
+		return rR;
+	}
+
+	@Override
+	public void editRequestType(int type, int id) {
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			// write a join to unify Bear, Cave, and BearType into one ResultSet
+			// map the ResultSet onto a list of Bear objects
+			String sql = "UPDATE REREQUEST SET STATUS = ? " + 
+						 "WHERE RE_ID = ?";
+				
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			pstmt.setInt(2, id);
+
+			pstmt.executeUpdate();
+		}
+		catch (SQLException | IOException e) {
+			e.printStackTrace();	
+		}
+		
+	}
 	
 
 }

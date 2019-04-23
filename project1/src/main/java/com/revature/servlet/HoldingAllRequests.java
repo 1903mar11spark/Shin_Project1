@@ -9,28 +9,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.ReRequest;
 import com.revature.beans.User;
 import com.revature.service.ReRequestService;
 import com.revature.service.ReRequestServiceImpl;
-import com.revature.service.UserService;
-import com.revature.service.UserServiceImpl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 /**
- * Servlet implementation class HolderServlet
+ * Servlet implementation class HoldingAllRequests
  */
-public class HolderServlet extends HttpServlet {
+public class HoldingAllRequests extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserService userService;
-	private ReRequestService reRequest;
+	
+	private ReRequestService allRequests;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HolderServlet() {
+    public HoldingAllRequests() {
         super();
-        userService = new UserServiceImpl();
+        allRequests = new ReRequestServiceImpl();
     }
 
 	/**
@@ -40,13 +38,8 @@ public class HolderServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			try {
-				int user = Integer.parseInt(session.getAttribute("user").toString());
-				String firstname = session.getAttribute("firstName").toString();
-				String lastname = session.getAttribute("lastName").toString();
-				String email = session.getAttribute("email").toString();
-				int userType = Integer.parseInt(session.getAttribute("userTypeId").toString());
-				User u = new User(user, firstname, lastname, email, userType);
-				response.getWriter().write((new ObjectMapper()).writeValueAsString(u)); 
+				List<ReRequest> requests = allRequests.getRequests();
+				response.getWriter().write((new ObjectMapper()).writeValueAsString(requests)); 
 			} catch (Exception e) {
 				e.printStackTrace();
 				response.getWriter().write("{\"session\":null}");
@@ -55,7 +48,6 @@ public class HolderServlet extends HttpServlet {
 			response.getWriter().write("{\"session\":null}");
 		}
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

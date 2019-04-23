@@ -18,9 +18,10 @@ public class Driver {
 		UserDAO using = new UserDAOImpl();
 		ReRequestDAO rR = new ReRequestDAOImpl();
 		
-		
+		rR.editRequestType(3, 1021);
 	
-		 List<ReRequest> derp = rR.getRequestsByUser(21);
-		 System.out.println(derp.get(1).getReId());
+		 
+
+		 
 	}
 }

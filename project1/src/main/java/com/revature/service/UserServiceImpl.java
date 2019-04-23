@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int getUserId(String firstName, String lastName, String email, int userTypeId) {
-		// TODO Auto-generated method stub
 		return ud.getUserId(firstName, lastName, email, userTypeId);
 	}
 
@@ -37,6 +36,11 @@ public class UserServiceImpl implements UserService {
 	public void updateUserById(String firstName, String lastName, String email, int userId) {
 		ud.updateUserById(firstName, lastName, email, userId);
 		
+	}
+
+	@Override
+	public List<User> getUsers() {
+		return ud.getUsers();
 	}
 
 }

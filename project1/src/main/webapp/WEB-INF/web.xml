@@ -71,4 +71,44 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestServlet</display-name>
+    <servlet-name>RequestServlet</servlet-name>
+    <servlet-class>com.revature.servlet.RequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestServlet</servlet-name>
+    <url-pattern>/request</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HoldAllUsersServlet</display-name>
+    <servlet-name>HoldAllUsersServlet</servlet-name>
+    <servlet-class>com.revature.servlet.HoldAllUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HoldAllUsersServlet</servlet-name>
+    <url-pattern>/allUsers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HoldingAllRequests</display-name>
+    <servlet-name>HoldingAllRequests</servlet-name>
+    <servlet-class>com.revature.servlet.HoldingAllRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HoldingAllRequests</servlet-name>
+    <url-pattern>/allRequests</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeesServlet</display-name>
+    <servlet-name>EmployeesServlet</servlet-name>
+    <servlet-class>com.revature.servlet.EmployeesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeesServlet</servlet-name>
+    <url-pattern>/employees</url-pattern>
+  </servlet-mapping>
 </web-app>

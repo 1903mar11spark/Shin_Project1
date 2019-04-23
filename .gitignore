@@ -64,6 +64,7 @@ local.properties
 
 # sbteclipse plugin
 .target
+.properties
 
 # Tern plugin
 .tern-project

@@ -21,5 +21,16 @@ public class ReRequestServiceImpl implements ReRequestService {
 		
 	}
 
+	@Override
+	public List<ReRequest> getRequests() {
+		return rR.getRequests();
+	}
+
+	@Override
+	public void editRequestType(int type, int id) {
+		rR.editRequestType(type, id);
+		
+	}
+
 
 }

@@ -38,8 +38,16 @@ public class LandingServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-			request.getRequestDispatcher("landing.html").forward(request, response);
+		HttpSession session = request.getSession(false);
+		int user = Integer.parseInt(session.getAttribute("userTypeId").toString());
+		
+			if (user == 3) {
+				request.getRequestDispatcher("masterLanding.html").forward(request, response);
+			}
+			else {
+				request.getRequestDispatcher("landing.html").forward(request, response);
+			}
+			
 
 	}	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -55,6 +55,13 @@ a:hover {
     height: auto;
     width: auto;
 }
+#Giovanni {
+    margin-top:2%;
+    margin-left: 42%;
+    position: absolute;
+    height: 60%;
+    width: auto;
+}
 .card {
     background-color:rgb(52, 39, 53);
     opacity: 0.7;

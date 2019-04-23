@@ -146,4 +146,35 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
+	@Override
+	public List<User> getUsers() {
+		List<User> u = new ArrayList<>();
+		
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			// write a join to unify Bear, Cave, and BearType into one ResultSet
+			// map the ResultSet onto a list of Bear objects
+			String sql = "SELECT USR_ID, FIRSTNAME, LASTNAME, EMAIL, USR_TYPE_ID, MANAGER_ID " + 
+						 "FROM USR U";
+				
+			PreparedStatement stmtGet = con.prepareStatement(sql);
+			ResultSet rs = stmtGet.executeQuery();
+			
+			while (rs.next()) {
+				int userId = rs.getInt("USR_ID");
+				String firstName = rs.getString("FIRSTNAME");
+				String lastName = rs.getString("LASTNAME");
+				String email = rs.getString("EMAIL");
+				int userTypeId = rs.getInt("USR_TYPE_ID");
+				int managerId = rs.getInt("MANAGER_ID");
+				
+				u.add(new User(userId,firstName,lastName,email,userTypeId,managerId));
+			}
+
+		}
+		catch (SQLException | IOException e) {
+			e.printStackTrace();	
+		}
+		return u;
+	}
+
 }
