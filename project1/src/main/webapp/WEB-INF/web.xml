@@ -111,4 +111,24 @@
     <servlet-name>EmployeesServlet</servlet-name>
     <url-pattern>/employees</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewEmployeeServlet</display-name>
+    <servlet-name>NewEmployeeServlet</servlet-name>
+    <servlet-class>com.revature.servlet.NewEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewEmployeeServlet</servlet-name>
+    <url-pattern>/newbies</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllResolvedServlet</display-name>
+    <servlet-name>AllResolvedServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AllResolvedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllResolvedServlet</servlet-name>
+    <url-pattern>/resolved</url-pattern>
+  </servlet-mapping>
 </web-app>

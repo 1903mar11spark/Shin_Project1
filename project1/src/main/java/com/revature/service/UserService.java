@@ -17,4 +17,8 @@ public interface UserService {
 	public void updateUserById(String firstName, String lastName, String email, int userId);
 	
 	public List<User> getUsers();
+	
+	public void updateUserManager(int id, int manId);
+	
+	public void updateUserPosition(int id);
 }

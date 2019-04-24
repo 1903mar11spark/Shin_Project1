@@ -42,7 +42,7 @@ public class FormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		request.getRequestDispatcher("NewForm.html").forward(request, response);
+		request.getRequestDispatcher("newForm.html").forward(request, response);
 	}
 
 	/**

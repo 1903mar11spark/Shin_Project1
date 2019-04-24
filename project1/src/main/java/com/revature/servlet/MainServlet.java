@@ -61,7 +61,7 @@ public class MainServlet extends HttpServlet {
 			session.setAttribute("userName", param1);
 			session.setAttribute("password", param2);
 			if (u.getUserTypeId() == 3) {
-				response.sendRedirect("masterLanding.html");
+				response.sendRedirect("landing");
 			}
 			else {
 				response.sendRedirect("landing");

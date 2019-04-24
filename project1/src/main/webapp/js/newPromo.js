@@ -1,12 +1,6 @@
 window.onload = function() {
     allUsers();
-    allRequests();
     getingUser();
-    myEmployees();
-    
-    let derping = document.getElementById("derping")
-    derping.addEventListener("click",button);   
-    
 };
 
 
@@ -16,55 +10,8 @@ let man = [];
 let emp = [];
 let me;
 
-function button() {
-    let workerId = document.getElementById("selectedEmployee").value;
 
-    doIt(workerId);
-}
 
-function doIt (id) {
-    let body = document.getElementById("requestBody");
-    for (let i = 0; i < requests.length; i++) {
-        if (id == requests[i].useId && requests[i].status == 1 ) {
-
-            let newTr = document.createElement("tr");
-		
-            let newTh = document.createElement("th");
-            newTh.setAttribute('scope', 'row');
-            newTh.innerHTML = requests[i].reId
-            let reqType = document.createElement("td");
-            switch (requests[i].typeId) {
-                case 1: reqType.innerHTML = "Traveling Expense";
-                break;
-                case 2: reqType.innerHTML = "Payment/Purchase/Misc.";
-                break;
-                case 3: reqType.innerHTML = "Medical";
-                break;
-                default: reqType.innerHTML = "HowWhatWhere???"
-            }
-            let status = document.createElement("td");
-            status.innerHTML = "Pending";
-
-            let description = document.createElement("td");
-            description.innerHTML = requests[i].text;
-
-            let radio = document.createElement("input");
-            radio.setAttribute("class", "form-check-input");
-            radio.setAttribute("type", "radio");
-            radio.setAttribute("name", "reNumber");
-            radio.setAttribute("value", requests[i].reId);
-            
-            newTr.appendChild(newTh);
-            newTr.appendChild(reqType);
-            newTr.appendChild(status);
-            newTr.appendChild(description);
-            newTr.appendChild(radio);
-
-            body.appendChild(newTr);
-
-        }
-    }
-}
 function getingUser() {
     //send GET request to SessionServlet to obtain session information
     fetch("http://localhost:8084/project1/holder").then(function(response) {
@@ -74,7 +21,7 @@ function getingUser() {
             window.location = "http://localhost:8084/project1/main";
         } 
         else {
-            me = data.usrId;
+            me = data.userTypeId;
         }
     });
 }
@@ -92,8 +39,8 @@ function allUsers() {
                 switch(data[i].userTypeId) {
                     case 1: emp.push(data[i]);
                         break;
-                    case 2: emp.push(data[i]);
-                         
+                    case 2: man.push(data[i]); 
+                         break;
                     case 3: man.push(data[i]); 
                     default:
                 }
@@ -103,23 +50,6 @@ function allUsers() {
 	});
 
 	
-}
-
-function allRequests() {
-	fetch("http://localhost:8084/project1/allRequests").then(function(response1){
-		return response1.json();
-	}).then(function(data2){
-		if (data2.session === null) {
-			window.location = "http://localhost:8084/project1/main";
-		}
-		else {
-
-            for (let i = 0; i < data2.length; i++) {
-                requests.push(data2[i]);
-            }
-          
-		}
-	});	
 }
 
 function allEmpAndMan() { 
@@ -183,22 +113,53 @@ function allEmpAndMan() {
         }
         
     }
-    myEmployees();
+    switch (me) {
+        case 2: newEmployees();
+        break;
+        case 3: promoteEmployees();
+        break;
+        default:
+    }
+
 } 
 
-function myEmployees() {
+function promoteEmployees() {
     
-    let place = document.getElementById("selectedEmployee");
-    for(let j = 0 ; j < users.length; j++) {
+    let place = document.getElementById("promoteEmployee");
 
-        if(me == users[j].managerId ) {
-            let option = document.createElement("option");
-            option.setAttribute("value", users[j].usrId );
-            option.innerHTML = users[j].firstName + " " +users[j].lastName;
 
-            place.appendChild(option);
+        for(let j = 0 ; j < users.length; j++) {
 
+            if(users[j].userTypeId == 1 ) {
+                let option = document.createElement("option");
+                option.setAttribute("value", users[j].usrId );
+                option.innerHTML = users[j].firstName + " " +users[j].lastName;
+    
+                place.appendChild(option);
+    
+            }
         }
-    }
+    
+ 
+
+}
+
+function newEmployees() {
+    
+    let place = document.getElementById("newEmployee");
+
+
+        for(let j = 0 ; j < users.length; j++) {
+
+            if(users[j].managerId === 0 && users[j].userTypeId < 3 ) {
+                let option = document.createElement("option");
+                option.setAttribute("value", users[j].usrId );
+                option.innerHTML = users[j].firstName + " " +users[j].lastName;
+    
+                place.appendChild(option);
+    
+            }
+        }
+    
 
 }

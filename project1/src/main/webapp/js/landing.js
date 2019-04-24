@@ -25,40 +25,34 @@ function getingUser() {
 			case 1: message.innerHTML = "Welcome Grunt Number " + data.usrId;
 				break;
 			case 2: message.innerHTML = "Welcome Admin " + data.firstName;
-					let newDropDown1 = document.createElement("a");
-					newDropDown1.setAttribute('href', '');
-					newDropDown1.innerHTML = "All Employee Pending"; 
+
 					let newDropDown2 = document.createElement("a");
-					newDropDown2.setAttribute('href', '');
-					newDropDown2.innerHTML = "Employee Requests"; 
+					newDropDown2.setAttribute('href', 'newbies');
+					newDropDown2.innerHTML = "New Employees"; 
 					let newDropDown3 = document.createElement("a");
-					newDropDown3.setAttribute('href', '');
+					newDropDown3.setAttribute('href', './resolved');
 					newDropDown3.innerHTML = "All Resolved"; 
 					let newDropDown4 = document.createElement("a");
 					newDropDown4.setAttribute('href', 'employees');
 					newDropDown4.innerHTML = "Employees"; 
 
-					admins.appendChild(newDropDown1);
 					admins.appendChild(newDropDown2);
 					admins.appendChild(newDropDown3);
 					admins.appendChild(newDropDown4);
 
 				break;
 			case 3: message.innerHTML = "Welcome Master " + data.firstName;
-					let newDropDown11 = document.createElement("a");
-					newDropDown11.setAttribute('href', '');
-					newDropDown11.innerHTML = "All Employee Pending"; 
+
 					let newDropDown21 = document.createElement("a");
-					newDropDown21.setAttribute('href', '');
-					newDropDown21.innerHTML = "Employee Requests"; 
+					newDropDown21.setAttribute('href', 'newbies');
+					newDropDown21.innerHTML = "Promote"; 
 					let newDropDown31 = document.createElement("a");
-					newDropDown31.setAttribute('href', '');
+					newDropDown31.setAttribute('href', './resolved');
 					newDropDown31.innerHTML = "All Resolved"; 
 					let newDropDown41 = document.createElement("a");
 					newDropDown41.setAttribute('href', './employees');
 					newDropDown41.innerHTML = "Employees"; 
 
-					admins.appendChild(newDropDown11);
 					admins.appendChild(newDropDown21);
 					admins.appendChild(newDropDown31);
 					admins.appendChild(newDropDown41);
@@ -107,7 +101,7 @@ function getRequests() {
 					case 1: let m = document.getElementById("pendingBody");
 							m.appendChild(newTr);
 					break;
-					case 2 || 3: let n = document.getElementById("resolvedBody");
+					case 2: let n = document.getElementById("resolvedBody");
 							n.appendChild(newTr);
 					break;
 				}

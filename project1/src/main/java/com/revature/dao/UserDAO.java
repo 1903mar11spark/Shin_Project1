@@ -18,6 +18,8 @@ public interface UserDAO {
 	
 	public List<User> getUsers();
 	
+	public void updateUserManager(int id, int manId);
 	
+	public void updateUserPosition(int id);
 	
 }

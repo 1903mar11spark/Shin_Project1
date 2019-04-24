@@ -177,4 +177,41 @@ public class UserDAOImpl implements UserDAO {
 		return u;
 	}
 
+	@Override
+	public void updateUserManager(int id, int manId) {
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			// write a join to unify Bear, Cave, and BearType into one ResultSet
+			// map the ResultSet onto a list of Bear objects
+			String sql = "UPDATE USR SET MANAGER_ID = ? " + 
+						 "WHERE USR_ID = ?";
+				
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, manId);
+			pstmt.setInt(2, id);
+			pstmt.executeUpdate();
+		}
+		catch (SQLException | IOException e) {
+			e.printStackTrace();	
+		}
+		
+	}
+
+	@Override
+	public void updateUserPosition(int id) {
+		try (Connection con = ConnectionUtil.getConnectionFromFile()) {
+			// write a join to unify Bear, Cave, and BearType into one ResultSet
+			// map the ResultSet onto a list of Bear objects
+			String sql = "UPDATE USR SET USR_TYPE_ID = 2 " + 
+						 "WHERE USR_ID = ?";
+				
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+		}
+		catch (SQLException | IOException e) {
+			e.printStackTrace();	
+		}
+		
+	}
+
 }

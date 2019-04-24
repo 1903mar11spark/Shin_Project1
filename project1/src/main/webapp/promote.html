@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Promotion</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+crossorigin="anonymous">
+<link rel="stylesheet" href = "./styles/main.css">
+</head>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-dark">
+        <div class="dropdown" style="width:4%; height:10%; margin-left: 5%;">
+            <button class="dropbtn"><img id = "navR" src="./styles/R.png" width="10" height="10" alt=""></button>
+            <div id = "dropDown" class="dropdown-content">
+                <a href="./profile">Profile</a>
+                <a href="./logout">Logout</a>
+                <a href="./landing">Landing</a>
+            </div>
+        </div>
+        <span id = "welcome" class="navbar-brand mb-0 h1"></span>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            Promotable Employees
+        </div>
+        <div class="card-body">
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Employee #</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Manager Name</th>
+                    </tr>
+                </thead>
+                <tbody id = "employeeBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class = "flex-container" style = "margin-top: 5%;">  
+        <div class = "row no-gutters">
+            <div class = "col-md-3"></div>               
+            <div class = "col-md-6">
+            <form action = "newbies" method = "post"> 
+              <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                  <label class="mr-sm-2" for="inlineFormCustomSelect">Who would you like to promote?</label>
+                    <select name="promoteGuy" class="custom-select mr-sm-2" id="promoteEmployee">
+                      <option id = "derps" selected>Select an Employee</option>
+  
+                    </select>
+                  </div>
+                </div>
+            <span>
+                <button type="submit" class="btn btn-dark" value = "landing">Submit</button>
+            </span>
+            </form> 
+            </div>
+        </div>
+    </div>
+
+    
+    <script src= "./js/newPromo.js"></script>
+</body>
+</html>

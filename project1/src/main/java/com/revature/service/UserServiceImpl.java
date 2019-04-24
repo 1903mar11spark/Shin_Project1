@@ -43,4 +43,16 @@ public class UserServiceImpl implements UserService {
 		return ud.getUsers();
 	}
 
+	@Override
+	public void updateUserManager(int id, int manId) {
+		ud.updateUserManager(id, manId);
+		
+	}
+
+	@Override
+	public void updateUserPosition(int id) {
+		ud.updateUserPosition(id);
+		
+	}
+
 }
